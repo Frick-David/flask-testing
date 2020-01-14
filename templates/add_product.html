@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+</head>
+<body>
+
+  <h1>Add Product</h1>
+  <form action="" method="post" novalidate>
+    {{ form.hidden_tag() }}
+    <p>
+        {{ form.product_name.label }} <br>
+        {{ form.product_name(size=32) }}
+    </p>
+    <p>
+        {{ form.product_cost.label }} <br>
+        {{ form.product_cost(size=32) }}
+    </p>
+    <p> {{ form.submit()  }}</p>
+   </form>
+
+</body>
+</html>
