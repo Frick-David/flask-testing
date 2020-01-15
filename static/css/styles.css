@@ -1,0 +1,44 @@
+.menu > li {
+  display: inline-block;
+}
+
+.box {
+  height: 100px;
+  width: 100px;
+  background-color: black;
+  cursor: pointer;
+}
+
+.held {
+  border: solid 10px black;
+  background-color: black;
+}
+
+.holder {
+  height: 110px;
+  width: 110px;
+  margin: 10px;
+  border: solid 5px black;
+  background-color: white;
+}
+
+.hovered {
+  border: dotted 5px black;
+}
+
+.invisible {
+  display: none;
+}
+
+.container {
+  top: 100px;
+  width: 400px;
+}
+
+.container > div {
+  display:inline;
+}
+
+.card-area > div {
+  display:inline-block;
+}

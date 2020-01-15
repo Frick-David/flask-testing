@@ -58,6 +58,10 @@ def create_app():
         products = Product.query.all()
         return render_template('products.html', products=products)
 
+    @app.route('/test')
+    def test():
+        return render_template('test.html')
+
     return app
 
 # Customer Data Grouping - Statistics, Machine Learning
@@ -67,4 +71,4 @@ def create_app():
 
 if __name__ == '__main__':
     app = create_app()
-    app.run(debug=True)
+    app.run(host='127.0.0.1', debug=True)

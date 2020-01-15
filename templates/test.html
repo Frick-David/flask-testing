@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+
+<div>
+  <nav class="navigation">
+    <ul class="menu">
+      <li><a href="#">Lorem</a></li>
+      <li><a href="#">Nobis</a></li>
+      <li><a href="#">Nostrum</a></li>
+      <li><a href="#">Quia</a></li>
+      <li><a href="#">Magni</a></li>
+    </ul><!-- .menu -->
+  </nav><!-- .navigation -->
+
+
+  <div class="card-area">
+  <div class="container">
+    <div class="holder">
+      <div class="box" draggable="true">
+        <li style="color:white;"> Apple </li>
+        <li style="color:white;"> Orange </li>
+        <li style="color:white;"> Banana </li>
+      </div>
+    </div>
+
+      <div class="holder">
+      </div>
+
+      <div class="holder">
+      </div>
+  </div>
+
+  <div class="container">
+    <div class="holder">
+      <div class="box" draggable="true">
+        <li style="color:white;"> 1 </li>
+        <li style="color:white;"> 2 </li>
+        <li style="color:white;"> 3 </li>
+      </div>
+    </div>
+
+      <div class="holder">
+      </div>
+
+      <div class="holder">
+      </div>
+  </div>
+  </div>
+
+
+</div>
+
+<script type="text/javascript">
+class App {
+
+  static init() {
+
+    App.box = document.getElementsByClassName('box')[0]
+
+    App.box.addEventListener("dragstart", App.dragstart)
+    App.box.addEventListener("dragend", App.dragend)
+
+    const containers = document.getElementsByClassName('holder')
+
+    for(const container of containers) {
+      container.addEventListener("dragover", App.dragover)
+      container.addEventListener("dragenter", App.dragenter)
+      container.addEventListener("dragleave", App.dragleave)
+      container.addEventListener("drop", App.drop)
+    }
+  }
+
+  static dragstart() {
+    this.className += " held"
+  
+    setTimeout(()=>this.className="invisible", 0)
+  }
+
+  static dragend() {
+    this.className = "box"
+  }
+
+  static dragover(e) {
+    e.preventDefault()
+  }
+
+  static dragenter(e) {
+    e.preventDefault()
+    this.className += " hovered"
+  }
+
+  static dragleave() {
+    this.className = "holder"
+  }
+
+  static drop() {
+    this.className = "holder"
+    this.append(App.box)
+  }
+
+}
+
+document.addEventListener("DOMContentLoaded", App.init)
+
+</script>
+
+
+</body>
+</html>
